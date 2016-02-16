@@ -30,14 +30,14 @@ Connect the hardware pieces together according to the following diagrams:
 ## Some testing
 
 Before building your own code I recommand you test your hardware.
+For each hardware element do the following:
 
-* For each hardware element do the following:
-  1. Open Arduino IDE
-  2. Go to File > Examples > Select the name of your library > Select the sketch you want to run
-  3. Click the upload button (right arrow)
-  4. Wait for the code to be compiled and uploaded to you Arduino
-  5. Open the Serial Monitor and verify that the Baud Rate matches the one from the sketch (look for the instruction Serial.begin)
-  6. You should see some relevant debug information
+1. Open Arduino IDE
+2. Go to File > Examples > Select the name of your library > Select the sketch you want to run
+3. Click the upload button (right arrow)
+4. Wait for the code to be compiled and uploaded to you Arduino
+5. Open the Serial Monitor and verify that the Baud Rate matches the one from the sketch (look for the instruction Serial.begin)
+6. You should see some relevant debug information
 
 Nota, for the ethernet it is preferable to use the following MAC address: `0x00,0x15,0x99,0xB7,0x98,0x8C`
 
@@ -45,9 +45,9 @@ Nota, for the ethernet it is preferable to use the following MAC address: `0x00,
 
 The following exercises will help you create your first IoT device.:
 
-* [Exercise #1]( "Exercise #1")
-* [Exercise #2]( "Exercise #2")
-* [Exercise #3]( "Exercise #3")
+* Read the DHT11: [Exercise #1](exercices/exercise_01.md "Exercise #1")
+* Create an end point: [Exercise #2](exercices/exercise_02.md "Exercise #2")
+* Go IoT: [Exercise #3](exercices/exercise_03.md "Exercise #3")
 
 ## How do I debug my code?
 
@@ -107,34 +107,36 @@ Reference: [https://www.arduino.cc/en/Reference/Interrupts](https://www.arduino.
 
 ### Debounce the switches
 
-When using switches on your project think about debouncing the input. There are tons of examples on the Internet, here are the ones that worked great for me:
-1. Software:
+When using switches on your project think about debouncing the input. There are tons of examples on the Internet, here is what worked great for me:
 
-```c
-#define DEBOUNCE_DELAY                50              // Delay during which we ignore the button actions (milliseconds)
-#define BUTTON_PIN                    2               // Interrupt pin
-volatile unsigned long
-  _v_lastInterruptTime =              0;
-  
-void setup(void) {
-	pinMode(BUTTON_PIN, INPUT_PULLUP);
-	attachInterrupt(digitalPinToInterrupt(BUTTON_PIN), isrButton, FALLING);
-}
+* Software part:
 
-void loop(void) {
-	// Do what you need to do
-}
+   ```c
+   #define DEBOUNCE_DELAY                50              // Delay during which we ignore the button actions (milliseconds)
+   #define BUTTON_PIN                    2               // Interrupt pin
+   volatile unsigned long
+     _v_lastInterruptTime =              0;
+   
+   void setup(void) {
+     pinMode(BUTTON_PIN, INPUT_PULLUP);
+     attachInterrupt(digitalPinToInterrupt(BUTTON_PIN), isrButton, FALLING);
+   }
+   
+   void loop(void) {
+     // Do what you need to do
+   }
+   
+   void isrButton(void) {
+     if (millis() - _v_lastInterruptTime > (unsigned long)DEBOUNCE_DELAY) {
+       // Do what you need to do
+     }
+     _v_lastInterruptTime = millis();
+   }
+   ```
 
-void isrButton(void) {
-	if (millis() - _v_lastInterruptTime > (unsigned long)DEBOUNCE_DELAY) {
-		// Do what you need to do
-	}
-	_v_lastInterruptTime = millis();
-}
-```
-2. Hardware:
+2. Hardware part:
 
-![Hard debouncing](http://i.imgur.com/iNz1J.png)
+   ![Hard debouncing](http://i.imgur.com/iNz1J.png)
 
 ### How long will my battery last?
 
