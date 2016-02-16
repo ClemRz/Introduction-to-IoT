@@ -1,6 +1,6 @@
-# Introduction to IoT
+# Introduction to IoT with an Arduino
 
-This is a small, practical and simple introduction to the concept of IoT through the use of a Arduino Uno, a lan adapter and a temperature and relative humidity sensor.
+This is a small, practical and simple introduction to the concept of IoT through the use of an Arduino Uno, a lan adapter and a temperature and relative humidity sensor.
 
 ## Requirements
 
@@ -63,7 +63,7 @@ void setup(void) {
 
 void loop(void) {
 	...
-	Serial.print("My var = "); // You can output either constant string
+	Serial.print(F("My var = ")); // You can output either constant string
 	Serial.println(myVar); // Or any value stored in a variable
 	...
 }
