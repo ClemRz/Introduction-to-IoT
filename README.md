@@ -134,7 +134,7 @@ When using switches on your project think about debouncing the input. There are 
    }
    ```
 
-2. Hardware part:
+* Hardware part:
 
    ![Hard debouncing](http://i.imgur.com/iNz1J.png)
 
