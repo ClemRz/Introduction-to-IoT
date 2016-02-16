@@ -140,7 +140,7 @@ When using switches on your project think about debouncing the input. There are 
 
 ### How long will my battery last?
 
-When you are building an off-the-grid project you will need to power your Arduino with a battery that will supposedly run out sometime. Here are some tips on how to easily extend your battery life.
+When you are building an off-the-grid project you will need to power your Arduino with a battery that will supposedly run out some day. Here are some tips on how to easily extend your battery life.
 
 1. Use a low power Arduino like the Pro Mini 3.3V
 2. Use a slow Arduino if possible: the Arduino usually runs at 16MHz but you can find some Pro Mini 3.3V running at 8MHz. Why? Because the lesser the number of cycles per seconds the lesser the power need is.
