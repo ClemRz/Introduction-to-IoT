@@ -6,7 +6,7 @@ In this first set of exercises we are going to connect to the temperature & rela
 
 Connect the hardware parts together according to the following diagram:
 
-![DHT11](img/dht11_arduino.jpg)
+![DHT11](../img/dht11_arduino.jpg)
 
 ## Software
 
