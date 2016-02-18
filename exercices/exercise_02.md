@@ -1,4 +1,4 @@
-# Exercise 1: Create an end point
+# Exercise 2: Create an end point
 
 In this set of exercises we are going to use the ethernet module to connect our Arduino to the web.
 
@@ -50,7 +50,7 @@ Let's explain a bit this piece of code:
 * `HTTP ...` and `Conent-type ...` are part of the [HTTP headers](http://code.tutsplus.com/tutorials/http-headers-for-dummies--net-8039 "HTTP headers").
 * `<html>...</html>` is the HTML code that will be rendered by your borwser.
 
-Next step: prepare a buffer. The buffer is used to allocate a memory space for the Ethercard to communicate with the outisde world:
+Next step: prepare a buffer. The buffer is used to allocate a memory space for the Ethercard to communicate with the outside world:
 
 `byte Ethernet::buffer[500];`
 
@@ -96,7 +96,7 @@ That's it!
 
 Huh, wait ... how can I test that s#*t?
 
-To test your skech you will need to know the IP your ethernet module got. For that you can output it in the Serial Monitor after the DHCP setup! Look at the library: `static uint8_t myip[4];   ///< IP address`. As you can see, this is a 8 byte encoded value, not easy to read. Hopefully there is this other method: `static void printIp (const uint8_t *buf);`.
+To test your skech you will need to know the IP your ethernet module got. For that you can output it in the Serial Monitor after the DHCP setup! Look at the library: `static uint8_t myip[4];   ///< IP address`. As you can see, this is a 8 byte encoded value, not easy to read. Hopefully there is this helpful method: `printIp`.
 
 Open your favourite brower (IE 4) (just kidding) and enter that IP in the address bar. Is it working?
 
@@ -139,12 +139,9 @@ void setup(){
 }
 
 void loop() {
-  // wait for an incoming TCP packet, but ignore its contents
-  if (ether.packetLoop(ether.packetReceive())) {
-    // copy the page in the buffer
-    memcpy(ether.tcpOffset(), page, sizeof page);
-    // send the page
-    ether.httpServerReply(sizeof page - 1);
+  if (ether.packetLoop(ether.packetReceive())) { // wait for an incoming TCP packet, but ignore its content
+    memcpy(ether.tcpOffset(), page, sizeof page); // copy the page in the buffer
+    ether.httpServerReply(sizeof page - 1); // send the page
   }
 }
 ```
