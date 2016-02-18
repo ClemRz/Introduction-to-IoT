@@ -31,7 +31,7 @@ void loop() {
 The way the Atmega328p works (the microcontroller that's on the Arduino board) is as follows:
 
 1. Once the Arduino boots up it runs only one time the `setup()` function
-2. As long as the Arduino is not reseted or shut down it runs the `loop()` funciton again and again
+2. As long as the Arduino is not reseted or shut down it runs the `loop()` function again and again
 
 Quite easy ha!
 
@@ -63,7 +63,7 @@ Upload it, what's goin'on?
 
 Okay, I think you got it, we need to slow this m#$%*ker down!
 
-To make the Arduino wait we use the `delay()` function, see the documentation [here](https://www.arduino.cc/en/Reference/Delay "here").
+To make the Arduino wait we use the `delay()` function, see the documentation [here](https://www.arduino.cc/en/Reference/Delay "here")).
 
 Is it better now?
 
@@ -150,4 +150,4 @@ Nice ha! This is a good practice. Each time you have to use constant strings don
 
 ## Good job!
 
-You've just finished the first set of exercices, well done! Let's go to the [next](exercices/exercise_02.md "next") one!
+You've just finished the first set of exercices, well done! Let's go to the [next](exercise_02.md "next") one!
