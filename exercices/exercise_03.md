@@ -4,15 +4,15 @@ This time you will find out how to put together the two previous exercises in or
 
 ## Hardware
 
-Refer to previous exercices to have both sensor and ethernet module connected.
+Refer to the previous exercices to have both sensor and ethernet module connected.
 
 ## Software
 
-You will now put together both softwares but how are you going to put the sensor readings into that `page` constant we defined?
+You will now put together both softwares but, how are you going to put the sensor readings into that `page` constant we defined?
 
 Here is the tricky part :)
 
-Look at the `printf()` function [reference](http://playground.arduino.cc/Main/Printf "reference").
+Look at the `printf()` function [reference](http://playground.arduino.cc/Main/Printf "reference") and implement it in your sketch.
 
 Is it not compiling? Whyyyyyyyyy? Maybe because our `page` is stored into the program memory (via `PROGMEM`)!
 
@@ -26,7 +26,8 @@ sprintf_P(bigstring, page, t, h);
 
 Be careful to define the size of your local variable `bigstring` correctly or it will be truncated.
 
-Need help? Raise your hand!
+Is it working now? Can you see that beautiful page in your browser?
+Or do you need help? Raise your hand!
 
 Here is the complete script:
 
