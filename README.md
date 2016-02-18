@@ -6,7 +6,7 @@ This is a small, practical and simple introduction to the concept of IoT through
 
 * Software:
   - [Arduino IDE](https://www.arduino.cc/en/Main/Software "Arduino IDE")
-  - [DHT11 library](http://playground.arduino.cc/Main/DHT11Lib "DHT11 Library")
+  - [DHT library](https://github.com/adafruit/DHT-sensor-library "DHT Library")
   - [Ethercard library](https://github.com/jcw/ethercard "Ethercard Library")
 * Hardware:
   - See this collection: [eBay collection](http://www.ebay.com/cln/babysclem/arduino-iot/227391728016 "http://www.ebay.com/cln/babysclem/arduino-iot/227391728016")
@@ -14,32 +14,10 @@ This is a small, practical and simple introduction to the concept of IoT through
 ## Setup
 
 * Install Arduino IDE
-* Install the DHT11 library as described [here](https://www.arduino.cc/en/Guide/Libraries "here").
+* Install the DHT & Ethercard libraries as described [here](https://www.arduino.cc/en/Guide/Libraries "here").
 * If you are using a recent version of OSx you might have issues with the USB connection to the Arduino. If so, check those links:
   - http://kiguino.moos.io/2014/12/31/how-to-use-arduino-nano-mini-pro-with-CH340G-on-mac-osx-yosemite.html
   - http://calumk.com/blog/0029/
-
-## Hardware connections
-
-Connect the hardware pieces together according to the following diagrams:
-
-![DHT11](img/dht11_arduino.jpg)
-
-![LAN](img/lan_arduino.jpg)
-
-## Some testing
-
-Before building your own code I recommand you test your hardware.
-For each hardware element do the following:
-
-1. Open Arduino IDE
-2. Go to File > Examples > Select the name of your library > Select the sketch you want to run
-3. Click the upload button (right arrow)
-4. Wait for the code to be compiled and uploaded to you Arduino
-5. Open the Serial Monitor and verify that the Baud Rate matches the one from the sketch (look for the instruction Serial.begin)
-6. You should see some relevant debug information
-
-Nota, for the ethernet it is preferable to use the following MAC address: `0x00,0x15,0x99,0xB7,0x98,0x8C`
 
 ## Getting started
 
@@ -71,7 +49,19 @@ void loop(void) {
 
 ## Best practices
 
-### Keep your code organized
+### Some testing
+
+Before building your own code I recommend you to test your hardware.
+For each hardware element do the following:
+
+1. Install the libraries you need
+2. Open Arduino IDE and Go to File > Examples > Select the name of your library > Select the example sketch you want to run
+3. Upload it and open the Serial Monitor and verify that the Baud Rate matches the one from the sketch (look for the instruction Serial.begin)
+4. You should see some relevant debug information
+
+Nota, for the ethernet it is preferable to use the following MAC address: `0x00,0x15,0x99,0xB7,0x98,0x8C`
+
+### Keep your code clean & organized
 
 Like in any language it is important to keep your code organized. It will help you find the bugs quickly and build something that can be read by anyone.
 
