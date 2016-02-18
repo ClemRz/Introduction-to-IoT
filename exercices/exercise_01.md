@@ -2,7 +2,7 @@
 
 In this first set of exercises we are going to connect to the temperature & relative humidity sensor (DHT11) and get the readings from it.
 
-## Hardware connections
+## Hardware
 
 Connect the hardware parts together according to the following diagram:
 
