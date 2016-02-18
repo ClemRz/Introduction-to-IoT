@@ -98,7 +98,7 @@ As you can see, some JavaScript is used to refresh the page each second.
 
 ## Congrats!
 
-You may or may not did it entirely by yourself but that's ok! In any case you follow this tutorial up to the end and I'm sure you learn usefull stuff!
+You may or may not did it entirely by yourself but that's ok! In any case you followed this tutorial up to the end and I'm sure you learn usefull stuff!
 
 Remember that there are tons of examples of usage of the Arduino on the Internet and you can still ask your favourite instructor for help whenever you need!
 
