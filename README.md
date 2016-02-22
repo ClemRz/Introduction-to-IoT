@@ -143,3 +143,87 @@ Here is a good link on how to optimise your design: [http://www.home-automation-
 
 1. Think about using less memory consuming libraries
 2. Think about adding a second Arduino to your project, they can communicate quite easily via i2c, follow this link: [http://dsscircuits.com/articles/arduino-i2c-slave-guide](http://dsscircuits.com/articles/arduino-i2c-slave-guide "http://dsscircuits.com/articles/arduino-i2c-slave-guide").
+
+### Use structures
+
+[Structures](http://playground.arduino.cc/Code/Struct "Structures") might be frightening at the beginning but they reveal to be very handy when trying to group different data types into a collection of bytes!
+
+Let me introduce you to the power of structures.
+
+First create a new tab in your sketch named `structures.h` for instance. The `.h` is very important!
+
+Inside that tab you can store one to many structures:
+
+```c
+#ifndef _MY_STRUCTURES_H
+#define _MY_STRUCTURES_H
+
+#define REG_MAP_SIZE             36              // Size of the register (consider nuber of bytes)
+
+typedef struct {
+  union {
+    byte byteAt[REG_MAP_SIZE];
+    struct {                            // bytes      address
+      byte year;                        //   1          0x23
+      byte month;                       //   1          0x22
+      byte day;                         //   1          0x21
+      byte hour;                        //   1          0x20
+      byte minute;                      //   1          0x1F
+      byte second;                      //   1          0x1E
+      int temperatureH1;                //   2          0x1C to 0x1D
+      int temperatureH2;                //   2          0x1A to 0x1B
+      int humidityH;                    //   2          0x18 to 0x19
+      long relativePressureH;           //   4          0x14 to 0x17
+      long absolutePressureH;           //   4          0x10 to 0x13
+      long radiation;                   //   4          0x0C to 0x0F
+      long uvRadiationH;                //   4          0x08 to 0x0B
+      int instWindDirection;            //   2          0x06 to 0x07
+      int avgWindDirection;             //   2          0x04 to 0x05
+      int instWindSpeed;                //   2          0x02 to 0x03
+      int avgWindSpeed;                 //   2          0x00 to 0x01
+    };                                  // Total: 36 bytes
+  };
+} Register;
+
+#endif  //_MY_STRUCTURES_H
+```
+
+The constant `_MY_STRUCTURES_H` is here to prevent this tab's content to be loaded more than once.
+At the beginning of your main sketch's tab you have to include that `.h`:
+
+```c
+#include "structures.h"
+```
+
+Now you can define a variable this way:
+
+```c
+Register register;
+```
+
+You can access its memeber this way:
+
+```c
+register.day = 5;
+Serial.println(register.day);
+```
+
+In a function where your variable is passed as a [pointer](https://www.arduino.cc/en/Reference/Pointer "pointer") you have to use `->` to access its members:
+
+```c
+void yourFunction(Register *a, Register b) {
+  if (b.day > 15) a->day -= b.day;
+}
+```
+
+If you want to send all the content of a instance of your structure byte by byte, like for a I2C communication, you just need the byteAt member defined in you structure:
+
+```c
+void sendRegister(void) {
+  Wire.beginTransmission(SLAVE_I2C_ADDRESS);
+  Wire.write(_register.byteAt, REG_MAP_SIZE);
+  Wire.endTransmission();
+}
+```
+
+Isn't that clean? :)
