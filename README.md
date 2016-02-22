@@ -219,9 +219,9 @@ void yourFunction(Register *a, Register b) {
 If you want to send all the content of a instance of your structure byte by byte, like for a I2C communication, you just need the byteAt member defined in you structure:
 
 ```c
-void sendRegister(void) {
+void sendRegister(Register register) {
   Wire.beginTransmission(SLAVE_I2C_ADDRESS);
-  Wire.write(_register.byteAt, REG_MAP_SIZE);
+  Wire.write(register.byteAt, REG_MAP_SIZE);
   Wire.endTransmission();
 }
 ```
