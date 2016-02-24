@@ -142,7 +142,12 @@ Here is a good link on how to optimise your design: [http://www.home-automation-
 ### One Arduino hasn't enough program memory for your sketch?
 
 1. Think about using less memory consuming libraries
-2. Think about adding a second Arduino to your project, they can communicate quite easily via i2c, follow this link: [http://dsscircuits.com/articles/arduino-i2c-slave-guide](http://dsscircuits.com/articles/arduino-i2c-slave-guide "http://dsscircuits.com/articles/arduino-i2c-slave-guide").
+2. Think about choosing another Arduino, like the Mega
+3. Think about adding a second Arduino to your project, they can communicate quite easily via i2c, follow this link: [http://dsscircuits.com/articles/arduino-i2c-slave-guide](http://dsscircuits.com/articles/arduino-i2c-slave-guide "http://dsscircuits.com/articles/arduino-i2c-slave-guide").
+
+### Need more RAM?
+
+You can save up some ram from the serial receive buffer, see [here](https://learn.adafruit.com/arduino-tips-tricks-and-techniques/arduino-hacks "here").
 
 ### Use structures
 
