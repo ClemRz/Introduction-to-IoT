@@ -21,7 +21,7 @@ This is a small, practical and simple introduction to the concept of IoT through
 
 ## Getting started
 
-The following exercises will help you create your first IoT device.:
+The following exercises will help you create your first IoT device:
 
 * Read the DHT11: [Exercise #1](exercices/exercise_01.md "Exercise #1")
 * Create an end point: [Exercise #2](exercices/exercise_02.md "Exercise #2")
