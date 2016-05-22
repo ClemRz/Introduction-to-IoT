@@ -232,3 +232,5 @@ void sendRegister(Register register) {
 ```
 
 Isn't that clean? :)
+
+Don't forget to set the `Wire` buffer to the correct size (in `Java/libraries/Wire/utility/twi.h` and `Java/libraries/Wire/Wire.h`).
