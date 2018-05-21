@@ -134,8 +134,8 @@ The mac address you set matters a lot. I usually use something like `00:15:99:B7
 
 When working with client:
 
-  - Always close your connection: `client.stop();`
-  - Alwasy wait for the server to answer: `while (!client.available());`
+  - Always close your connection once you're done working with it: `client.stop();`
+  - Always wait for the server to answer before doing anything: `while (!client.available());`
 
 ### How long will my battery last?
 
