@@ -128,6 +128,15 @@ When using switches on your project think about debouncing the input. There are 
 
    ![Hard debouncing](http://i.imgur.com/iNz1J.png)
 
+### Ethernet tips and tricks
+
+The mac address you set matters a lot. I usually use something like `00:15:99:B7:98:8C` incrementing the last number.
+
+When working with client:
+
+  - Always close your connection: `client.stop();`
+  - Alwasy wait for the server to answer: `while (!client.available());`
+
 ### How long will my battery last?
 
 When you are building an off-the-grid project you will need to power your Arduino with a battery that will supposedly run out some day. Here are some tips on how to easily extend your battery life.
