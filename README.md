@@ -136,6 +136,7 @@ When working with client:
 
   - Always close your connection once you're done working with it: `client.stop();`
   - Always wait for the server to answer before doing anything: `while (!client.available());`
+  - Use all the power behind streams: `while (file.available()) client.print((char)file.read());`
 
 ### How long will my battery last?
 
